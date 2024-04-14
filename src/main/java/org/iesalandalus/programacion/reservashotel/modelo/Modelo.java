@@ -13,7 +13,6 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public class Modelo {
-    private static final int CAPACIDAD = 5;
     private static Habitaciones habitaciones;
     private static Reservas reservas;
     private static Huespedes huespedes;
@@ -22,8 +21,8 @@ public class Modelo {
 
     public void comenzar() throws IllegalArgumentException, NullPointerException {
         habitaciones = new Habitaciones();
-        reservas = new Reservas(CAPACIDAD);
-        huespedes = new Huespedes(CAPACIDAD);
+        reservas = new Reservas();
+        huespedes = new Huespedes();
     }
 
     public void terminar(){
@@ -42,7 +41,7 @@ public class Modelo {
         huespedes.borrar(huesped);
     }
 
-    public Huesped[] getHuespedes(){
+    public List<Huesped> getHuespedes(){
         return huespedes.get();
     }
 
@@ -78,19 +77,19 @@ public class Modelo {
         reservas.borrar(reserva);
     }
 
-    public Reserva[] getReservas() {
+    public List<Reserva> getReservas() {
         return reservas.get();
     }
 
-    public Reserva[] getReservas(Huesped huesped) throws NullPointerException {
+    public List<Reserva> getReservas(Huesped huesped) throws NullPointerException {
         return reservas.getReservas(huesped);
     }
 
-    public Reserva[] getReservas(TipoHabitacion tipoHabitacion) throws NullPointerException {
+    public List<Reserva> getReservas(TipoHabitacion tipoHabitacion) throws NullPointerException {
         return reservas.getReservas(tipoHabitacion);
     }
 
-    public Reserva[] getReservasFuturas(Habitacion habitacion) throws NullPointerException {
+    public List<Reserva> getReservasFuturas(Habitacion habitacion) throws NullPointerException {
         return reservas.getReservasFuturas(habitacion);
     }
 
@@ -101,5 +100,4 @@ public class Modelo {
     public void realizarCheckout (Reserva reserva, LocalDateTime fecha) throws IllegalArgumentException, NullPointerException {
         reservas.realizarCheckout(reserva, fecha);
     }
-
 }
