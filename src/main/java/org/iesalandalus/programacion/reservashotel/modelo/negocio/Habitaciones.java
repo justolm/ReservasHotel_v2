@@ -10,7 +10,7 @@ import java.util.List;
 public class Habitaciones {
     private List<Habitacion> coleccionHabitaciones;
 
-    public Habitaciones() throws IllegalArgumentException{
+    public Habitaciones() {
         coleccionHabitaciones = new ArrayList<>();
     }
 
@@ -66,7 +66,7 @@ public class Habitaciones {
             throw new NullPointerException("ERROR: No se puede buscar una habitación nula.");
         for(int i = 0; i < getTamano(); i++){
             if (coleccionHabitaciones.get(i).equals(habitacion)){
-                return habitacion;
+                return coleccionHabitaciones.get(i);
             }
         }
         return null;

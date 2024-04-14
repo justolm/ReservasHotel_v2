@@ -13,16 +13,17 @@ import java.util.List;
 
 public class Reservas {
     private List<Reserva> coleccionReservas;
+
     public Reservas () {
         coleccionReservas=new ArrayList<>();
     }
 
-    public List<Reserva> get(){
+    public List<Reserva> get() {
         coleccionReservas=copiaProfundaReservas();
         return coleccionReservas;
     }
 
-    private List<Reserva> copiaProfundaReservas(){
+    private List<Reserva> copiaProfundaReservas() {
         List<Reserva> copiaProfundaReservas=new ArrayList<>();
         for (int i=0 ; i<coleccionReservas.size() ; i++){
             copiaProfundaReservas.add(coleccionReservas.get(i));
@@ -50,7 +51,7 @@ public class Reservas {
         }
         for (int i=0 ; i < getTamano() ; i++){
             if (coleccionReservas.get(i).equals(reserva)){
-                return reserva;
+                return coleccionReservas.get(i);
             }
         }
         return null;
