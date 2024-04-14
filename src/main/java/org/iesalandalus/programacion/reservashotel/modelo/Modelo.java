@@ -62,7 +62,7 @@ public class Modelo {
         return habitaciones.get();
     }
 
-    public Habitacion[] getHabitaciones(TipoHabitacion tipoHabitacion) throws NullPointerException {
+    public List<Habitacion> getHabitaciones(TipoHabitacion tipoHabitacion) throws NullPointerException {
         return habitaciones.get(tipoHabitacion);
     }
 

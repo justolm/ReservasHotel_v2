@@ -10,6 +10,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.List;
 
 public class Vista {
     private Controlador controlador;
@@ -359,7 +360,7 @@ public class Vista {
         Habitacion habitacionDisponible=null;
         int numElementos=0;
 
-        Habitacion[] habitacionesTipoSolicitado= controlador.getHabitaciones(tipoHabitacion);
+        List<Habitacion> habitacionesTipoSolicitado= controlador.getHabitaciones(tipoHabitacion);
 
         if (habitacionesTipoSolicitado==null)
             return habitacionDisponible;

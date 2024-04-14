@@ -69,7 +69,7 @@ public class Controlador {
         return modelo.getHabitaciones();
     }
 
-    public Habitacion[] getHabitaciones(TipoHabitacion tipoHabitacion) throws NullPointerException {
+    public List<Habitacion> getHabitaciones(TipoHabitacion tipoHabitacion) throws NullPointerException {
         return modelo.getHabitaciones(tipoHabitacion);
     }
 
