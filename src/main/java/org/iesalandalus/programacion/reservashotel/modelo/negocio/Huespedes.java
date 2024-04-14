@@ -14,7 +14,10 @@ public class Huespedes {
     }
 
     public List<Huesped> get() {
-        coleccionHuespedes=copiaProfundaHuespedes();
+        coleccionHuespedes=new ArrayList<>(copiaProfundaHuespedes());/*
+        for (int i = 0 ; i < copiaProfundaHuespedes().size() ; i++){
+            coleccionHuespedes.add(copiaProfundaHuespedes().get(i));
+        }*/
         return coleccionHuespedes;
     }
 
@@ -23,7 +26,7 @@ public class Huespedes {
             throw new NullPointerException("ERROR: No se puede copiar una colección vacía.");
         List<Huesped> copiaProfundaHuespedes = new ArrayList<>();
         for (int i = 0; i < getTamano(); i++) {
-            copiaProfundaHuespedes.add(new Huesped(coleccionHuespedes.get(i)));
+            copiaProfundaHuespedes.add(coleccionHuespedes.get(i));
         }
         return copiaProfundaHuespedes;
     }
@@ -41,7 +44,7 @@ public class Huespedes {
         coleccionHuespedes.add(huesped);
     }
 
-    public Huesped buscar(Huesped huesped) throws NullPointerException, IllegalArgumentException{
+    public Huesped buscar(Huesped huesped) throws NullPointerException, IllegalArgumentException {
         if (huesped==null)
             throw new NullPointerException("ERROR: No se puede buscar un huésped nulo.");
         for(int i = 0; i < getTamano(); i++){

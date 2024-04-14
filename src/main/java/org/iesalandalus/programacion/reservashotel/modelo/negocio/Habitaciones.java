@@ -25,7 +25,7 @@ public class Habitaciones {
         }
         List<Habitacion> copiaProfundaHabitaciones = new ArrayList<>();
         for (int i = 0; i < coleccionHabitaciones.size(); i++) {
-            copiaProfundaHabitaciones.add(new Habitacion(coleccionHabitaciones.get(i)));
+            copiaProfundaHabitaciones.add(coleccionHabitaciones.get(i));
         }
         return copiaProfundaHabitaciones;
     }
@@ -41,8 +41,7 @@ public class Habitaciones {
         List<Habitacion> copiaProfundaHabitacionesFiltro = new ArrayList<>();
         for (int i = 0; i < getTamano(); i++) {
             if (coleccionHabitaciones.get(i).getTipoHabitacion().equals(tipoHabitacion)){
-                copiaProfundaHabitacionesFiltro.set(j, new Habitacion(coleccionHabitaciones.get(i)));
-                j++;
+                copiaProfundaHabitacionesFiltro.add(new Habitacion(coleccionHabitaciones.get(i)));
             }
         }
         return copiaProfundaHabitacionesFiltro;
@@ -58,7 +57,7 @@ public class Habitaciones {
         if (coleccionHabitaciones.contains(habitacion)){
             throw new OperationNotSupportedException("ERROR: Ya existe una habitación con ese identificador.");
         }
-        coleccionHabitaciones.add(new Habitacion(habitacion));
+        coleccionHabitaciones.add(habitacion);
     }
 
     public Habitacion buscar(Habitacion habitacion) throws NullPointerException{

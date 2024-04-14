@@ -49,19 +49,19 @@ public class Reserva {
     public Reserva(Reserva reserva) throws NullPointerException {
         if (reserva==null)
             throw new NullPointerException("ERROR: No es posible copiar una reserva nula.");
-        this.huesped=reserva.huesped;
-        this.habitacion=reserva.habitacion;
-        this.regimen=reserva.regimen;
-        this.fechaInicioReserva=reserva.fechaInicioReserva;
-        this.fechaFinReserva=reserva.fechaFinReserva;
-        this.numeroPersonas=reserva.numeroPersonas;
+        setHuesped(reserva.getHuesped());
+        setHabitacion(reserva.getHabitacion());
+        setRegimen(reserva.getRegimen());
+        setFechaInicioReserva(reserva.getFechaInicioReserva());
+        setFechaFinReserva(reserva.getFechaFinReserva());
+        setNumeroPersonas(reserva.getNumeroPersonas());
         if (reserva.checkIn!=null){
-            this.checkIn=reserva.checkIn;
+            this.checkIn=reserva.getCheckIn();
             if (reserva.checkOut!=null){
-                this.checkOut=reserva.checkOut;
+                this.checkOut=reserva.getCheckOut();
             }
         }
-        this.precio=reserva.precio;
+        setPrecio();
     }
 
     public Huesped getHuesped() {
@@ -164,7 +164,6 @@ public class Reserva {
     }
 
     public double getPrecio() {
-      //  this.precio=Habitacion.getPrecio();
         return precio;
     }
 

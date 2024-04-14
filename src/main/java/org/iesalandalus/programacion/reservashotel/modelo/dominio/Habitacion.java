@@ -45,7 +45,7 @@ public class Habitacion {
             throw new IllegalArgumentException("ERROR: No se puede establecer como precio de una habitación un valor menor que 40.0 ni mayor que 150.0.");
         }
         else if (tipoHabitacion==null){
-            throw new NullPointerException("ERROR: La descripción no puede ser nula.");
+            throw new NullPointerException("ERROR: No se puede establecer un tipo de habitación nula.");
         } else{
             setPlanta(planta);
             setPuerta(puerta);

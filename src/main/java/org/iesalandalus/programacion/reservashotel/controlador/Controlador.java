@@ -49,7 +49,7 @@ public class Controlador {
         modelo.borrar(huesped);
     }
 
-    public Huesped[] getHuespedes(){
+    public List<Huesped> getHuespedes(){
         return modelo.getHuespedes();
     }
 
@@ -85,19 +85,19 @@ public class Controlador {
         modelo.borrar(reserva);
     }
 
-    public Reserva[] getReservas() {
+    public List<Reserva> getReservas() {
         return modelo.getReservas();
     }
 
-    public Reserva[] getReservas(Huesped huesped) throws NullPointerException {
+    public List<Reserva> getReservas(Huesped huesped) throws NullPointerException {
         return modelo.getReservas(huesped);
     }
 
-    public Reserva[] getReservas(TipoHabitacion tipoHabitacion) throws NullPointerException {
+    public List<Reserva> getReservas(TipoHabitacion tipoHabitacion) throws NullPointerException {
         return modelo.getReservas(tipoHabitacion);
     }
 
-    public Reserva[] getReservasFuturas(Habitacion habitacion) throws NullPointerException {
+    public List<Reserva> getReservasFuturas(Habitacion habitacion) throws NullPointerException {
         return modelo.getReservasFuturas(habitacion);
     }
 

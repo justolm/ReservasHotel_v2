@@ -1,17 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding" defaultCharsetForPropertiesFiles="ISO-8859-1" addBOMForNewFiles="with BOM">
-    <file url="file://$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/reservashotel/MainApp.java" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/reservashotel/MainApp.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/reservashotel/controlador/Controlador.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/reservashotel/modelo/Modelo.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/reservashotel/modelo/dominio/Habitacion.java" charset="ISO-8859-1" />
-    <file url="file://$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/reservashotel/modelo/dominio/Huesped.java" charset="ISO-8859-1" />
-    <file url="file://$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/reservashotel/modelo/dominio/Regimen.java" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/reservashotel/modelo/dominio/Huesped.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/reservashotel/modelo/dominio/Regimen.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/reservashotel/modelo/dominio/Reserva.java" charset="ISO-8859-1" />
-    <file url="file://$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/reservashotel/modelo/dominio/TipoHabitacion.java" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/reservashotel/modelo/dominio/TipoHabitacion.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/reservashotel/modelo/negocio/Habitaciones.java" charset="ISO-8859-1" />
     <file url="file://$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/reservashotel/modelo/negocio/Huespedes.java" charset="ISO-8859-1" />
     <file url="file://$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/reservashotel/modelo/negocio/Reservas.java" charset="ISO-8859-1" />
     <file url="file://$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/reservashotel/vista/Consola.java" charset="ISO-8859-1" />
     <file url="file://$PROJECT_DIR$/src/main/java/org/iesalandalus/programacion/reservashotel/vista/Opcion.java" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/test/java/org/iesalandalus/programacion/reservashotel/dominio/HabitacionTest.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/org/iesalandalus/programacion/reservashotel/dominio/HuespedTest.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/org/iesalandalus/programacion/reservashotel/dominio/ReservaTest.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/org/iesalandalus/programacion/reservashotel/dominio/TipoHabitacionTest.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/org/iesalandalus/programacion/reservashotel/negocio/HabitacionesTest.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/org/iesalandalus/programacion/reservashotel/negocio/HuespedesTest.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/org/iesalandalus/programacion/reservashotel/negocio/ReservasTest.java" charset="UTF-8" />
     <file url="PROJECT" charset="ISO-8859-1" />
   </component>
 </project>

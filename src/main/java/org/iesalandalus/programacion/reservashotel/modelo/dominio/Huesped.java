@@ -48,11 +48,11 @@ public class Huesped {
     public Huesped(Huesped huesped) throws NullPointerException, IllegalArgumentException{
         if(huesped==null)
             throw new NullPointerException("ERROR: No es posible copiar un huésped nulo.");
-        this.nombre=huesped.nombre;
-        this.dni=huesped.dni;
-        this.correo=huesped.correo;
-        this.telefono=huesped.telefono;
-        this.fechaNacimiento=huesped.fechaNacimiento;
+        setNombre(huesped.getNombre());
+        setDni(huesped.getDni());
+        setCorreo(huesped.getCorreo());
+        setTelefono(huesped.getTelefono());
+        setFechaNacimiento(huesped.getFechaNacimiento());
     }
 
     public String getNombre() {
@@ -76,6 +76,7 @@ public class Huesped {
         //Eliminamos los espacios dobles
         String espacioMultiple = "\\s+"; // patrón de 2 o más espacios en blanco
         String espacioUnico = " ";
+        nombre = nombre.toLowerCase();
         nombre = nombre.replaceAll(espacioMultiple, espacioUnico);
 
         // Corregimos las mayúsculas y minúsculas
@@ -90,7 +91,7 @@ public class Huesped {
                     nombreFormateado = Character.toUpperCase(palabra.charAt(0)) + palabra.substring(1).toLowerCase();
                     inicioNombre = false;
                 } else {
-                    nombreFormateado = nombreFormateado + " " + Character.toUpperCase(palabra.charAt(0)) + palabra.substring(1).toLowerCase();
+                    nombreFormateado = nombreFormateado + ' ' + Character.toUpperCase(palabra.charAt(0)) + palabra.substring(1).toLowerCase();
                 }
             }
         }

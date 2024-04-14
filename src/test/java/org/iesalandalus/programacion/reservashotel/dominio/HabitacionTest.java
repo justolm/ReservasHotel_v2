@@ -1,5 +1,7 @@
 package org.iesalandalus.programacion.reservashotel.dominio;
 
+import org.iesalandalus.programacion.reservashotel.modelo.dominio.Habitacion;
+import org.iesalandalus.programacion.reservashotel.modelo.dominio.TipoHabitacion;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -8,11 +10,11 @@ import static org.junit.jupiter.api.Assertions.fail;
 public class HabitacionTest {
 
     private static final String CADENA_NO_ESPERADA = "La cadena devuelta no es la esperada.";
-    private static final String PLANTA_NO_ESPERADA = "El n鷐ero de planta devuelta no es la misma que la pasada al constructor.";
-    private static final String PUERTA_NO_ESPERADA = "El n鷐ero de puerta devuelta no es la misma que la pasada al constructor.";
+    private static final String PLANTA_NO_ESPERADA = "El n煤mero de planta devuelta no es la misma que la pasada al constructor.";
+    private static final String PUERTA_NO_ESPERADA = "El n煤mero de puerta devuelta no es la misma que la pasada al constructor.";
     private static final String PRECIO_HABITACION_NO_ESPERADO = "El precio devuelto no es el mismo que el pasada al constructor.";
-    private static final String TIPO_HABITACION_NO_ESPERADA = "El tipo de habitaci髇 devuelta no es el mismo que el pasada al constructor.";
-    private static final String IDENTIFICADOR_HABITACION_NO_ESPERADO = "El identificador de la habitaci髇 no es el esperado.";
+    private static final String TIPO_HABITACION_NO_ESPERADA = "El tipo de habitaci贸n devuelta no es el mismo que el pasada al constructor.";
+    private static final String IDENTIFICADOR_HABITACION_NO_ESPERADO = "El identificador de la habitaci贸n no es el esperado.";
 
     private static final int PLANTA_1=1;
     private static final int PUERTA_0=0;
@@ -20,25 +22,25 @@ public class HabitacionTest {
 
     private static final double PRECIO_HABITACION_VALIDO=50;
     private static final TipoHabitacion TIPO_HABITACION_VALIDA=TipoHabitacion.DOBLE;
-    private static final String MENSAJE_EXCEPCION_NO_CORRECTO = "El mensaje devuelto por la excepci髇 no es correcto.";
-    private static final String OBJETO_DEBERIA_SER_NULO = "No se deber韆 haber creado el objeto habitaci髇.";
-    private static final String TIPO_EXCEPCION_NO_CORRECTA = "El tipo de la excepci髇 no es correcto.";
+    private static final String MENSAJE_EXCEPCION_NO_CORRECTO = "El mensaje devuelto por la excepci贸n no es correcto.";
+    private static final String OBJETO_DEBERIA_SER_NULO = "No se deber铆a haber creado el objeto habitaci贸n.";
+    private static final String TIPO_EXCEPCION_NO_CORRECTA = "El tipo de la excepci贸n no es correcto.";
 
-    private static final String PLANTA_INCORRECTA = "Deber韆 haber saltado una excepci髇 indicando que la planta es incorrecta.";
-    private static final String ERROR_PLANTA_INCORRECTA= "ERROR: No se puede establecer como planta de una habitaci髇 un valor menor que " + Habitacion.MIN_NUMERO_PLANTA + " ni mayor que " + Habitacion.MAX_NUMERO_PLANTA + ".";
-    private static final String PUERTA_INCORRECTA="Deber韆 haber saltado una excepci髇 indicando que la puerta es incorrecta.";
-    private static final String ERROR_PUERTA_INCORRECTA= "ERROR: No se puede establecer como puerta de una habitaci髇 un valor menor que " + Habitacion.MIN_NUMERO_PUERTA + " ni mayor que " + Habitacion.MAX_NUMERO_PUERTA + ".";
+    private static final String PLANTA_INCORRECTA = "Deber铆a haber saltado una excepci贸n indicando que la planta es incorrecta.";
+    private static final String ERROR_PLANTA_INCORRECTA= "ERROR: No se puede establecer como planta de una habitaci贸n un valor menor que " + Habitacion.MIN_NUMERO_PLANTA + " ni mayor que " + Habitacion.MAX_NUMERO_PLANTA + ".";
+    private static final String PUERTA_INCORRECTA="Deber铆a haber saltado una excepci贸n indicando que la puerta es incorrecta.";
+    private static final String ERROR_PUERTA_INCORRECTA= "ERROR: No se puede establecer como puerta de una habitaci贸n un valor menor que " + Habitacion.MIN_NUMERO_PUERTA + " ni mayor que " + Habitacion.MAX_NUMERO_PUERTA + ".";
 
-    private static final String PRECIO_HABITACION_INCORRECTO= "Deber韆 haber saltado una excepci髇 indicando que el precio de la habitaci髇 es incorrecto.";
-    private static final String ERROR_PRECIO_HABITACION_INCORRECTO= "ERROR: No se puede establecer como precio de una habitaci髇 un valor menor que " + Habitacion.MIN_PRECIO_HABITACION + " ni mayor que " + Habitacion.MAX_PRECIO_HABITACION + ".";
+    private static final String PRECIO_HABITACION_INCORRECTO= "Deber铆a haber saltado una excepci贸n indicando que el precio de la habitaci贸n es incorrecto.";
+    private static final String ERROR_PRECIO_HABITACION_INCORRECTO= "ERROR: No se puede establecer como precio de una habitaci贸n un valor menor que " + Habitacion.MIN_PRECIO_HABITACION + " ni mayor que " + Habitacion.MAX_PRECIO_HABITACION + ".";
 
-    private static final String TIPO_HABITACION_INCORRECTO = "Deber韆 haber saltado una excepci髇 indicando que el tipo de la habitaci髇 es incorrecto.";
-    private static final String ERROR_TIPO_HABITACION_NULA="ERROR: No se puede establecer un tipo de habitaci髇 nula.";
+    private static final String TIPO_HABITACION_INCORRECTO = "Deber铆a haber saltado una excepci贸n indicando que el tipo de la habitaci贸n es incorrecto.";
+    private static final String ERROR_TIPO_HABITACION_NULA="ERROR: No se puede establecer un tipo de habitaci贸n nula.";
 
-    private static final String HABITACION_NO_ESPERADA = "La habitaci髇 copiada deber韆 ser la misma que la pasada como par醡etro.";
+    private static final String HABITACION_NO_ESPERADA = "La habitaci贸n copiada deber铆a ser la misma que la pasada como par谩metro.";
 
-    private static final String HABITACION_NULA = "Deber韆 haber saltado una excepci髇 indicando que no se puede copiar una habitaci髇 nula.";
-    private static final String ERROR_COPIAR_HABITACION_NULA = "ERROR: No es posible copiar una habitaci髇 nula.";
+    private static final String HABITACION_NULA = "Deber铆a haber saltado una excepci贸n indicando que no se puede copiar una habitaci贸n nula.";
+    private static final String ERROR_COPIAR_HABITACION_NULA = "ERROR: No es posible copiar una habitaci贸n nula.";
 
 
     @Test
@@ -190,6 +192,6 @@ public class HabitacionTest {
         Habitacion habitacion = new Habitacion(PLANTA_1, PUERTA_0, PRECIO_HABITACION_VALIDO, TIPO_HABITACION_VALIDA);
 
 
-        assertEquals(String.format("identificador=%s (%d-%d), precio habitaci髇=%s, tipo habitaci髇=%s", habitacion.getIdentificador(), habitacion.getPlanta(), habitacion.getPuerta(), habitacion.getPrecio(), habitacion.getTipoHabitacion()), habitacion.toString(), CADENA_NO_ESPERADA);
+        assertEquals(String.format("identificador=%s (%d-%d), precio habitaci贸n=%s, tipo habitaci贸n=%s", habitacion.getIdentificador(), habitacion.getPlanta(), habitacion.getPuerta(), habitacion.getPrecio(), habitacion.getTipoHabitacion()), habitacion.toString(), CADENA_NO_ESPERADA);
     }
 }
