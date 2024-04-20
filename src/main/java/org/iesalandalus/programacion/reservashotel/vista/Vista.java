@@ -2,7 +2,6 @@ package org.iesalandalus.programacion.reservashotel.vista;
 
 import org.iesalandalus.programacion.reservashotel.controlador.Controlador;
 import org.iesalandalus.programacion.reservashotel.modelo.dominio.*;
-import org.iesalandalus.programacion.reservashotel.modelo.negocio.Reservas;
 import org.iesalandalus.programacion.utilidades.Entrada;
 
 import javax.naming.OperationNotSupportedException;
@@ -12,8 +11,6 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-
-import static java.util.Collections.sort;
 
 public class Vista {
     private Controlador controlador;
@@ -104,19 +101,27 @@ public class Vista {
                 mostrarReservas();
                 break;
             case CONSULTAR_DISPONIBILIDAD:
-                TipoHabitacion tipoHabitacion;
-                LocalDate fechaInicioReserva, fechaFinReserva;
-                System.out.println("Introduzca el tipo de habitación: ");
-                tipoHabitacion = Consola.leerTipoHabitacion();
-                System.out.println("Introduzca la fecha de entrada (dd/mm/aa): ");
-                fechaInicioReserva = Consola.leerFecha(Entrada.cadena());
-                System.out.println("Introduzca la fecha de salida (dd/mm/aa): ");
-                fechaFinReserva = Consola.leerFecha(Entrada.cadena());
-                Habitacion habitacion1=consultarDisponibilidad(tipoHabitacion, fechaInicioReserva, fechaFinReserva);
-                System.out.println(habitacion1);
+                try {
+                    TipoHabitacion tipoHabitacion;
+                    LocalDate fechaInicioReserva, fechaFinReserva;
+                    System.out.println("Introduzca el tipo de habitación: ");
+                    tipoHabitacion = Consola.leerTipoHabitacion();
+                    System.out.println("Introduzca la fecha de entrada (dd/mm/aa): ");
+                    fechaInicioReserva = Consola.leerFecha(Entrada.cadena());
+                    System.out.println("Introduzca la fecha de salida (dd/mm/aa): ");
+                    fechaFinReserva = Consola.leerFecha(Entrada.cadena());
+                    Habitacion habitacion1=consultarDisponibilidad(tipoHabitacion, fechaInicioReserva, fechaFinReserva);
+                    System.out.println(habitacion1);
+                } catch (NullPointerException e) {
+                    System.out.println(e.getMessage());
+                }
                 break;
             case REALIZAR_CHECKIN:
+                try {
                 realizarCheckin();
+                } catch (NullPointerException | IllegalArgumentException e) {
+                    System.out.println(e.getMessage());
+                }
                 break;
             case REALIZAR_CHECKOUT:
                 realizarCheckout();
@@ -242,7 +247,7 @@ public class Vista {
             reserva=Consola.leerReserva();
             habitacion = consultarDisponibilidad(reserva.getHabitacion().getTipoHabitacion(), reserva.getFechaInicioReserva(), reserva.getFechaFinReserva());
             if (habitacion!=null){
-                controlador.insertar(new Reserva(reserva.getHuesped(),habitacion,reserva.getRegimen(),reserva.getFechaInicioReserva(),reserva.getFechaFinReserva(),reserva.getNumeroPersonas()));
+                controlador.insertar(new Reserva(controlador.buscar(reserva.getHuesped()),habitacion,reserva.getRegimen(),reserva.getFechaInicioReserva(),reserva.getFechaFinReserva(),reserva.getNumeroPersonas()));
                 System.out.println("Reserva insertada correctamente.");
             }
             else {
@@ -482,13 +487,9 @@ public class Vista {
             reserva= reservas.get(numOpcion);
         }
         do{
-            if (fecha!=null){
-                System.out.print("Siga el patrón para la fecha. ");
-            }
             System.out.println("Introduzca la fecha y hora de entrada (dd/MM/yy HH:mm): ");
             fecha=Consola.leerFechaHora(Entrada.cadena());
         } while (fecha.isBefore(LocalDate.now().atStartOfDay()));
-
         if (reserva==null){
             throw new NullPointerException("ERROR: No se puede introducir una reserva nula.");
         }
@@ -538,10 +539,7 @@ public class Vista {
             reserva = reservas.get(numOpcion);
         }
         do{
-            if (fecha!=null){
-                System.out.print("Siga el patrón para la fecha. ");
-            }
-            System.out.println("Introduzca la fecha y hora de entrada (dd/MM/yy HH:mm): ");
+            System.out.println("Introduzca la fecha y hora de salida (dd/MM/yy HH:mm): ");
             fecha=Consola.leerFechaHora(Entrada.cadena());
         } while (fecha.isBefore(LocalDate.now().atStartOfDay()));
         if(reserva==null){

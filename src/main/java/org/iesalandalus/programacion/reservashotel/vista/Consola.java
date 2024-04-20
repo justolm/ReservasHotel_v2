@@ -71,10 +71,10 @@ public class Consola {
         return null;
     }
 
-    public static LocalDateTime leerFechaHora (String mensaje) throws NullPointerException {
+    public static LocalDateTime leerFechaHora (String mensaje) throws IllegalArgumentException {
         DateTimeFormatter formatoFechaHora = DateTimeFormatter.ofPattern(Reserva.FORMATO_FECHA_HORA_RESERVA);
-        if (mensaje==null){
-            throw new NullPointerException("ERROR: La fecha/hora está vacía.");
+        if (mensaje.isEmpty()){
+            throw new IllegalArgumentException("ERROR: La fecha/hora está vacía.");
         }
         try {
             return LocalDateTime.parse(mensaje, formatoFechaHora);
@@ -86,8 +86,8 @@ public class Consola {
 
     public static Habitacion leerHabitacion(){
         int planta=1, puerta=0, precio=0;
-        TipoHabitacion tipoHabitacion=null;
-        Habitacion habitacion=null;
+        TipoHabitacion tipoHabitacion;
+        Habitacion habitacion;
         System.out.println("Introduzca los datos de la habitación. ");
         do{
             if (planta != 1){
@@ -117,7 +117,6 @@ public class Consola {
 
     public static Habitacion leerHabitacionPorIdentificador() throws IllegalArgumentException {
         int planta, puerta;
-        String identificador;
         Habitacion habitacion=null;
         System.out.println("Introduzca los datos de la habitación. ");
         System.out.print("Planta (" + Habitacion.MIN_NUMERO_PLANTA + " - " + Habitacion.MAX_NUMERO_PLANTA + "): ");
@@ -130,7 +129,6 @@ public class Consola {
         if (puerta<Habitacion.MIN_NUMERO_PUERTA || puerta>Habitacion.MAX_NUMERO_PUERTA){
             throw new IllegalArgumentException("ERROR: El número de puerta es incorrecto.");
         }
-        identificador=planta+""+puerta;
         habitacion = new Habitacion(planta,puerta,40,TipoHabitacion.SIMPLE);
         return habitacion;
     }
